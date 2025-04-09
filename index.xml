@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Next Token</title>
+    <link>https://masy.github.io/</link>
+    <description>Recent content on Next Token</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Mar 2025 13:40:17 +0200</lastBuildDate>
+    <atom:link href="https://masy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stop fine-tuning</title>
+      <link>https://masy.github.io/posts/stop-fine-tuning/</link>
+      <pubDate>Thu, 20 Mar 2025 13:40:17 +0200</pubDate>
+      <guid>https://masy.github.io/posts/stop-fine-tuning/</guid>
+      <description>&lt;p&gt;I have been implementing gen AI solutions for clients for a while now. Mostly this has been LLM based features for different kinds of SaaS software and I have not yet come across a reason to fine-tune models. On the other hand, talking to technical people in meetups, I have noticed that some people seem to really think that fine-tuning is important. I suspect this has something to do with engineers with an ML background wanting to justify training models, even though it may not be necessary.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

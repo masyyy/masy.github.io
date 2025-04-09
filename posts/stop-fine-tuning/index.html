@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="I have been implementing gen AI solutions for clients for a while now. Mostly this has been LLM based features for different kinds of SaaS software and I have not yet come across a reason to fine-tune models. On the other hand, talking to technical people in meetups, I have noticed that some people seem to really think that fine-tuning is important. I suspect this has something to do with engineers with an ML background wanting to justify training models, even though it may not be necessary.">  
+
+  <title>
+    
+      Stop fine-tuning
+    
+  </title>
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/" />
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.51652302d3a998bf7887aed5c2cf89141bbebdf45a2c8f87b0717a3cf4f51c4e53c694c328fb1de78c3a625a1c01f80745bf1f2f42c040647a245cbbb6c2d1d7.css" integrity="sha512-UWUjAtOpmL94h67Vws&#43;JFBu&#43;vfRaLI&#43;HsHF6PPT1HE5TxpTDKPsd54w6YlocAfgHRb8fL0LAQGR6JFy7tsLR1w==" />
+  
+</head>
+<body a="auto">
+        <main class="page-content" aria-label="Content">
+            <div class="w">
+                <div class="post-meta">
+                    <a href="/">..</a>
+
+                    <p>
+                        <time datetime="2025-03-20 13:40:17 &#43;0200 EET">
+                            2025-03-20
+                        </time>
+                    </p>
+                </div>
+
+<article>
+    <h1>Stop fine-tuning</h1>
+
+    
+
+    <p>I have been implementing gen AI solutions for clients for a while now. Mostly this has been LLM based features for different kinds of SaaS software and I have not yet come across a reason to fine-tune models. On the other hand, talking to technical people in meetups, I have noticed that some people seem to really think that fine-tuning is important. I suspect this has something to do with engineers with an ML background wanting to justify training models, even though it may not be necessary.</p>
+<p>What I have observed in the industry is that instead of fine-tuning smaller models (or even big ones for that matter) most business problems are solved quicker and cheaper by just using state of the art models from different providers like OpenAI or Anthropic combined with in context learning. The process goes something like this:</p>
+<ul>
+<li>You have encountered a problem that you want to solve using an LLM.</li>
+<li>Start first by splitting the problem into the minimal component problems that make sense for an LLM call to solve</li>
+<li>Benchmark solving each problem with the cheapest model (e.g. gpt4o-mini) and a simple prompt that might or might not provide a hardcoded example</li>
+<li>Combine the component solutions into you final solution whatever it is</li>
+</ul>
+<p>If this is not sufficient what you can do is provide RAG-based examples for in context learning puposes. I.e. maintain a database of edge case examples where the LLM performs poorly and run a vector search on the example database on each query. This database can be anything from a JSON file within your project, and version control to a real database table somewhere. This solution gives you the ability to keep adding examples to the database as you encounter new edge cases not properly handled by your system. You can also always just bump up the LLM model to a better one if that might help solving the problem.</p>
+<p>I symphatize with the desire to fine-tune, but I think for most problems it simply a waste to setup the data pipeline and fine-tuning infrastructure instead of this simple RAG solution. However, there are some situations where fine-tuning seems like a reasonable approach.</p>
+<p>The first things that come to mind is a very specific answering style. Let&rsquo;s say you want to emulate a speech pattern of some character or example you might have a hard time getting the desired style by just using examples. In this case fine-tuning a small model to give the final response in the right style might be a good idea. An example of this would be some kind of role playing AI agent that speaks in a certain way.</p>
+<p>The second thing that comes to mind is cost optimization at scale. If you are creating AI solutions at a scale where the API pricing is really hurting your business and you can do the task with relatively small models, then even fine-tuning and running local models seem reasonable.</p>
+<p>To summarize, I think most business cases don&rsquo;t benefit from fine-tuning approaches and are better served by using off the shelf models through a third-party provider&rsquo;s API. In terms of generating a specific kind of structured output for some business case, you can get really far with cheap models like gpt4o-mini and RAG based in context learning.</p>
+
+</article>
+
+            </div>
+        </main>
+    </body></html>
